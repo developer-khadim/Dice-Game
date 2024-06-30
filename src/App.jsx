@@ -1,21 +1,17 @@
-"use client";
 import { useState } from "react";
 import StartGame from "./components/StartGame";
-import GamePlay from "./components/gameplay";
+import GamePlay from "./components/GamePlay";
 
-const App = () => {
-  const [isGameStarted, setIsGameStarted] = useState(true);
+function App() {
+  const [isGameStarted, setIsGameStarted] = useState(false);
 
-  const toggleGamePlay  = ()=>{
+  const toggleGamePlay = () => {
     setIsGameStarted((prev) => !prev);
-  }
+  };
+
   return (
-    <>
-    {isGameStarted ? <GamePlay/> : <StartGame
-    toggle={toggleGamePlay}
-    />}
-    </>
+    <>{isGameStarted ? <GamePlay /> : <StartGame toggle={toggleGamePlay} />}</>
   );
-};
+}
 
 export default App;
